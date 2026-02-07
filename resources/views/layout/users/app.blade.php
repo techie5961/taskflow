@@ -483,8 +483,8 @@ window.onload=function(){
         document.querySelector('body').classList.remove('overflow-hidden');
        
   let max_bottom=document.querySelector('footer').getBoundingClientRect().bottom;
- // document.querySelector('main').style.paddingBottom=max_bottom - document.querySelector('.home-nav').getBoundingClientRect().top + 'px'; 
- document.querySelector('main').style.paddingBottom=document.querySelector('footer .child').offsetHeight + 10 + 'px';
+ document.querySelector('main').style.paddingBottom=max_bottom - document.querySelector('.home-nav').getBoundingClientRect().top + 10 + 'px'; 
+//  document.querySelector('main').style.paddingBottom=(document.querySelector('footer .child').offsetHeight + 10) + 'px';
 }
     </script>
     @yield('js')

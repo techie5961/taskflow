@@ -297,8 +297,7 @@
    
    
      </div>
-{{-- MARGINALIZE --}}
-    <div class="marginalize"></div>
+
      {{-- AFFILIATE LINK --}}
        <div class="w-full br-10 column align-center g-10 p-20" style="border:1px solid rgba(255,255,255,0.1)">
         <strong class="desc" style="color:var(--primary-light)">Refer & Earn</strong>
@@ -457,22 +456,7 @@
     <script class="js">
         // PopUp();
         window.MyFunc ={
-           Style : function(){
-           try{
-            document.querySelectorAll('.balance-divs').forEach((div)=>{
-            
-                // div.style.minHeight=div.querySelector('.rep-img').getBoundingClientRect().height + 'px';
-            })
-            // document.querySelector('.promo-img').style.bottom=Math.abs(document.querySelector('footer').getBoundingClientRect().top - document.querySelector('footer').getBoundingClientRect().bottom) + 10 + 'px';
-          //  alert(Math.abs(document.querySelector('footer').getBoundingClientRect().top - document.querySelector('footer').getBoundingClientRect().bottom) + 10 + 'px')
-         //   alert(document.querySelectorAll('.wallets')[document.querySelectorAll('.wallets').length - 1].getBoundingClientRect().bottom)
-            // document.querySelector('.marginalize').style.marginTop=Math.abs(document.querySelectorAll('.wallets')[0].getBoundingClientRect().top - document.querySelectorAll('.wallets')[document.querySelectorAll('.wallets').length - 1].getBoundingClientRect().bottom) + 'px' 
-           
-
-           }catch(error){
-            alert(error.stack);
-           }
-           } ,
+          
            Redeemed : function(response,event){
             let data=JSON.parse(response);
           
@@ -508,6 +492,6 @@
            
            }
         }
-        MyFunc.Style();
+     
     </script>
 @endsection
