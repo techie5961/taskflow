@@ -241,6 +241,9 @@
             background:rgba(255,255,255,0.02)
 
         }
+        .quick-link small{
+            text-align:center;
+        }
     </style>
 @endsection
 @section('main')
@@ -408,13 +411,13 @@
 
       
         
-        <div style="border:1px solid var(--primary);margin-bottom:10px;" class="w-full display-none no-select m-x-auto align-center p-20 column g-5 br-10 p-10">
-                <strong class="font-1 m-right-auto row">Join Our Community</strong>
-                <span>Want to stay updated? Join our communities on WhatApp and Telegram to get latest updates and giveaways.</span>
+        <div style="border:1px solid var(--primary);margin-bottom:10px;" class="w-full no-select m-x-auto align-center p-20 column g-5 br-10 p-10">
+                <strong class="font-1 m-right-auto row">Oou Official Links</strong>
+                <span>Below are the platforms offilical links</span>
            
        <div class="grid place-center m-left-auto w-full g-10 align-center">
-        <div onclick="window.open('{{ $social->whatsapp }}')" class="bg-green g-5 align-center pc-max-w-half c-white row justify-center h-50 p-10 bold w-full br-1000">
-            Join our Whatsapp Group
+        <div onclick="window.open('{{ $social->advert_link }}')" class="bg-green g-5 align-center pc-max-w-half c-white row justify-center h-50 p-10 bold w-full br-1000">
+           Place Advert
           
 
 
