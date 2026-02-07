@@ -238,7 +238,8 @@
             height:100%;
             border-radius:20px;
             border:1px solid rgba(255,255,255,0.1);
-            background:rgba(255,255,255,0.02)
+            background:rgba(255,255,255,0.02);
+            position:static !important;
 
         }
         .quick-link small{
@@ -321,7 +322,7 @@
        <section style="padding-top:5px;" class="grid quick-links p-10 grid-2 pc-grid-4 w-full place-center g-10">
       {{-- NEW QUICK LINK --}}
         <div onclick="spa(event,'{{ url('users/team') }}')" class="column g-10 br-10 justify-center w-full quick-link">
-           <div class="column align-center content g-10">
+           <div class="column align-center g-10">
              <div style="background:rgba(0,0,255,0.1);color:blue;" class=" h-70 w-70 br-20 justify-center column">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="CurrentColor" xmlns="http://www.w3.org/2000/svg">
 <path d="M15.5 7.5C15.5 9.433 13.933 11 12 11C10.067 11 8.5 9.433 8.5 7.5C8.5 5.567 10.067 4 12 4C13.933 4 15.5 5.567 15.5 7.5Z" fill="CurrentColor"></path>
@@ -340,7 +341,7 @@
         </div>
          {{-- NEW QUICK LINK --}}
           <div onclick="spa(event,'{{ url('users/transactions') }}')" class="column bg-light g-10 br-10 justify-center w-full quick-link">
-           <div class="column align-center content g-10">
+           <div class="column align-center g-10">
              <div style="background:rgba(255,255,255, 0.1);color:rgb(255,255, 255);" class=" h-70 w-70 br-20 justify-center column">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="CurrentColor" height="40" width="40"><path d="M216,40H40A16,16,0,0,0,24,56V208a8,8,0,0,0,11.58,7.15L64,200.94l28.42,14.21a8,8,0,0,0,7.16,0L128,200.94l28.42,14.21a8,8,0,0,0,7.16,0L192,200.94l28.42,14.21A8,8,0,0,0,232,208V56A16,16,0,0,0,216,40ZM176,144H80a8,8,0,0,1,0-16h96a8,8,0,0,1,0,16Zm0-32H80a8,8,0,0,1,0-16h96a8,8,0,0,1,0,16Z"></path></svg>
 
@@ -354,7 +355,7 @@
         </div>
          {{-- NEW QUICK LINK --}}
           <div onclick="spa(event,'{{ url('users/tasks') }}')" class="column bg-light g-10 br-10 justify-center w-full quick-link">
-           <div class="column align-center content g-10">
+           <div class="column align-center g-10">
              <div style="background:rgba(255, 0, 234, 0.1);color:rgb(255, 0, 221);" class=" h-70 w-70 br-20 justify-center column">
            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="CurrentColor" height="40" width="40"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM169.66,133.66l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L116,164.69l42.34-42.35a8,8,0,0,1,11.32,11.32ZM48,80V48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80Z"></path></svg>
            
@@ -368,7 +369,7 @@
         </div>
          {{-- NEW QUICK LINK --}}
           <div onclick="window.open('{{ $social->advert_link }}')" class="column bg-light g-10 br-10 justify-center w-full quick-link">
-           <div class="column align-center content g-10">
+           <div class="column align-center g-10">
              <div style="background:rgba(255, 215, 0, 0.1);color:rgb(255, 215, 0);" class=" h-70 w-70 br-20 justify-center column">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="CurrentColor" height="40" width="40"><path d="M160,32.25V223.69a8.29,8.29,0,0,1-3.91,7.18,8,8,0,0,1-9-.56l-65.57-51A4,4,0,0,1,80,176.16V79.84a4,4,0,0,1,1.55-3.15l65.57-51a8,8,0,0,1,10,.16A8.27,8.27,0,0,1,160,32.25ZM60,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H60a4,4,0,0,0,4-4V84A4,4,0,0,0,60,80Zm126.77,20.84a8,8,0,0,0-.72,11.3,24,24,0,0,1,0,31.72,8,8,0,1,0,12,10.58,40,40,0,0,0,0-52.88A8,8,0,0,0,186.74,100.84Zm40.89-26.17a8,8,0,1,0-11.92,10.66,64,64,0,0,1,0,85.34,8,8,0,1,0,11.92,10.66,80,80,0,0,0,0-106.66Z"></path></svg>
 
@@ -381,7 +382,7 @@
         </div>
          {{-- NEW QUICK LINK --}}
           <div onclick="window.open('{{ $social->whatsapp }}')" class="column bg-light g-10 br-10 justify-center w-full quick-link">
-           <div class="column align-center content g-10">
+           <div class="column align-center g-10">
              <div style="background:rgba(0, 255, 0, 0.1);color:rgb(0, 255, 0);" class=" h-70 w-70 br-20 justify-center column">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="CurrentColor" height="40" width="40"><path d="M152.58,145.23l23,11.48A24,24,0,0,1,152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-40,24a8,8,0,0,0-4.42-7.16l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88A40,40,0,0,0,192,152Z"></path></svg>
 
@@ -394,7 +395,7 @@
         </div>
         {{-- NEW QUICK LINK --}}
           <div onclick="window.open('{{ $social->telegram }}')" class="column bg-light g-10 br-10 justify-center w-full quick-link">
-           <div class="column align-center content g-10">
+           <div class="column align-center g-10">
              <div style="background:rgba(0, 255, 255, 0.1);color:rgb(0, 0, 255);" class=" h-70 w-70 br-20 justify-center column">
            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="CurrentColor" height="40" width="40"><path d="M228.88,26.19a9,9,0,0,0-9.16-1.57L17.06,103.93a14.22,14.22,0,0,0,2.43,27.21L72,141.45V200a15.92,15.92,0,0,0,10,14.83,15.91,15.91,0,0,0,17.51-3.73l25.32-26.26L165,220a15.88,15.88,0,0,0,10.51,4,16.3,16.3,0,0,0,5-.79,15.85,15.85,0,0,0,10.67-11.63L231.77,35A9,9,0,0,0,228.88,26.19ZM175.53,208,92.85,135.5l119-85.29Z"></path></svg>
 
@@ -411,8 +412,8 @@
 
       
         
-        <div style="border:1px solid var(--primary);margin-bottom:10px;" class="w-full no-select m-x-auto align-center p-20 column g-5 br-10 p-10">
-                <strong class="font-1 m-right-auto row">Oou Official Links</strong>
+        <div style="border:1px solid var(--primary);margin-bottom:10px;position:static !important;" class="w-full no-select m-x-auto align-center p-20 column g-5 br-10 p-10">
+                <strong class="font-1 m-right-auto row">Our Official Links</strong>
                 <span>Below are the platforms offilical links</span>
            
        <div class="grid place-center m-left-auto w-full g-10 align-center">
