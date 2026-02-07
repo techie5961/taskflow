@@ -206,7 +206,7 @@
             justify-content:center;
             gap:5px;
             padding: 10px 30px;
-            background:linear-gradient(to right,var(--primary-light,var(--primary)));
+            background:var(--primary-light);
             border-radius:1000px;
             width:100%;
             color:var(--primary-text)
@@ -255,12 +255,12 @@
               <strong style="font-size: 2.5rem" >&#8358;{{ number_format(Auth::guard('users')->user()->affiliate_balance + Auth::guard('users')->user()->activities_balance,2) }}</strong>
         <div class="w-full grid grid-2 row align-center justify-center g-10">
         {{-- WITHDRAW BUTTON --}}
-            <div class="withdraw-btn">
+            <div onclick="spa(event,'{{ url('users/withdraw') }}')" class="withdraw-btn">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="CurrentColor" height="20" width="20"><path d="M196,136a16,16,0,1,1-16-16A16,16,0,0,1,196,136Zm40-36v80a32,32,0,0,1-32,32H60a32,32,0,0,1-32-32V60.92A32,32,0,0,1,60,28H192a12,12,0,0,1,0,24H60a8,8,0,0,0-8,8.26v.08A8.32,8.32,0,0,0,60.48,68H204A32,32,0,0,1,236,100Zm-24,0a8,8,0,0,0-8-8H60.48A33.72,33.72,0,0,1,52,90.92V180a8,8,0,0,0,8,8H204a8,8,0,0,0,8-8Z"></path></svg>
             <span>Withdraw</span>
         </div>
         {{-- HISTORY BUTTON --}}
-          <div class="history-btn">
+          <div  onclick="spa(event,'{{ url('users/transactions') }}')" class="history-btn">
            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="CurrentColor" height="20" width="20"><path d="M236,137A108.13,108.13,0,1,1,119,20,12,12,0,0,1,121,44,84.12,84.12,0,1,0,212,135,12,12,0,1,1,236,137ZM116,76v52a12,12,0,0,0,12,12h52a12,12,0,0,0,0-24H140V76a12,12,0,0,0-24,0Zm92,20a16,16,0,1,0-16-16A16,16,0,0,0,208,96ZM176,64a16,16,0,1,0-16-16A16,16,0,0,0,176,64Z"></path></svg>
             <span>History</span>
         </div>
