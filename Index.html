@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EarnHive - Together We Earn, Together We Grow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d1b3e;
+            --primary-light: #1a2f5c;
+            --secondary: #3a86ff;
+            --accent: #00c9b7;
+            --text: #f0f4f8;
+            --text-light: #b8c2cc;
+            --card-bg: #121c33;
+            --dark-bg: #0a1123;
+            --success: #4ade80;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(13, 27, 62, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(58, 134, 255, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--secondary);
+            font-size: 28px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: -5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(58, 134, 255, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at 20% 50%, var(--primary-light) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 201, 183, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--text), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        /* Features Section */
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .features {
+            padding: 100px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            transition: var(--transition);
+            border: 1px solid rgba(58, 134, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(58, 134, 255, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .feature-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .feature-desc {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        /* Earnings Structure */
+        .earnings {
+            padding: 100px 0;
+            background-color: rgba(13, 27, 62, 0.3);
+        }
+        
+        .earnings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .earning-item {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(58, 134, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .earning-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 201, 183, 0.3);
+        }
+        
+        .earning-amount {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .earning-label {
+            font-size: 16px;
+            color: var(--text-light);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, var(--primary) 0%, transparent 70%);
+        }
+        
+        .cta-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(58, 134, 255, 0.2);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-tagline {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+        
+        .copyright {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-hive"></i>
+                    </div>
+                    <div>
+                        <div class="logo-text">EarnHive</div>
+                        <div class="tagline">Together We Earn, Together We Grow...</div>
+                    </div>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#earnings" class="nav-link">Earnings</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="#join" class="nav-link">Join Now</a>
+                </div>
+                
+                <a href="#join" class="cta-button">Get Started Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content floating">
+                <h1 class="hero-title">Social Monetization Made Simple</h1>
+                <p class="hero-subtitle">Turn your followers and subscriptions into cash. Get rewarded for your daily posts, likes & shares. Simple as that.</p>
+                <a href="#join" class="cta-button">Join Us Now! <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">How You Can Earn With EarnHive</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3 class="feature-title">Watch & Stream Videos</h3>
+                    <p class="feature-desc">Get paid to sit back and relax. Watch short videos, ads or clips and earn per view — literal easy money.</p>
+                    <div class="earning-highlight">Earn: <strong>N350 per watch</strong></div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tap"></i>
+                    </div>
+                    <h3 class="feature-title">Tap to Earn Cash</h3>
+                    <p class="feature-desc">Earn with every tap! Complete simple one-click tasks and watch your balance grow instantly.</p>
+                    <div class="earning-highlight">Earn: <strong>N100 per tap</strong></div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Social Media Boosting</h3>
+                    <p class="feature-desc">Help others go viral and earn for it! Like, follow, share & get paid for boosting real accounts. All for free!</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="feature-title">Stream & Earn</h3>
+                    <p class="feature-desc">Stream upcoming musicians' songs, popular music, or live content and earn rewards as you enjoy.</p>
+                    <div class="earning-highlight">Earn: <strong>N250 per stream</strong></div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="feature-title">Referral Rewards</h3>
+                    <p class="feature-desc">Invite friends and earn generous rewards for every successful referral. Grow your network and income together.</p>
+                    <div class="earning-highlight">Earn: <strong>N1000 per referral</strong></div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Per Minute Claims</h3>
+                    <p class="feature-desc">Every minute counts! Stay active, claim bonus points, and cash out when your minutes stack up.</p>
+                    <div class="earning-highlight">Earn: <strong>N100 per minute</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Earnings Structure -->
+    <section class="earnings" id="earnings">
+        <div class="container">
+            <h2 class="section-title">Earnings Structure</h2>
+            <div class="earnings-grid">
+                <div class="earning-item">
+                    <div class="earning-amount">FREE</div>
+                    <div class="earning-label">Registration Fee</div>
+                </div>
+                
+                <div class="earning-item">
+                    <div class="earning-amount">N300</div>
+                    <div class="earning-label">Leg-in Claims</div>
+                </div>
+                
+                <div class="earning-item">
+                    <div class="earning-amount">N350</div>
+                    <div class="earning-label">Watch And Earn</div>
+                </div>
+                
+                <div class="earning-item">
+                    <div class="earning-amount">N100</div>
+                    <div class="earning-label">Amount Per Tap</div>
+                </div>
+                
+                <div class="earning-item">
+                    <div class="earning-amount">N2000</div>
+                    <div class="earning-label">Sign-up Claims</div>
+                </div>
+                
+                <div class="earning-item">
+                    <div class="earning-amount">N1000</div>
+                    <div class="earning-label">Referral Reward</div>
+                </div>
+                
+                <div class="earning-item">
+                    <div class="earning-amount">N250</div>
+                    <div class="earning-label">Stream And Earn</div>
+                </div>
+                
+                <div class="earning-item">
+                    <div class="earning-amount">N100</div>
+                    <div class="earning-label">Per Minutes Claim</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="join">
+        <div class="container">
+            <h2 class="cta-title">Ready to Start Earning?</h2>
+            <p class="cta-subtitle">Join thousands of users who are already monetizing their social media activity. No investment required, just your regular online activity!</p>
+            <a href="#" class="cta-button">Join Today! <i class="fas fa-rocket"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">EarnHive</div>
+                <div class="footer-tagline">Together We Earn, Together We Grow...</div>
+                <a href="#" class="cta-button">Start Earning Now</a>
+                <div class="copyright">
+                    &copy; 2023 EarnHive. All rights reserved. | Social Monetization Platform
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(13, 27, 62, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'rgba(13, 27, 62, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Add hover effects to earning items
+        document.querySelectorAll('.earning-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const amount = this.querySelector('.earning-amount');
+                amount.style.transform = 'scale(1.1)';
+                amount.style.transition = 'transform 0.3s ease';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const amount = this.querySelector('.earning-amount');
+                amount.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
