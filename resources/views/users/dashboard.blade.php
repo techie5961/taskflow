@@ -278,7 +278,7 @@
        {{-- BREAKDOWN BALANCE ROW --}}
        <div class="w-full row p-10 overflow-auto align-center g-10">
         {{-- ACTIVITIES/MAIN BALANCE --}}
-        <div style="border:1px solid rgba(255,255,255,0.1);width:60%;background:rgba(255,255,255,0.02)" class="w-full p-20 align-center column g-5 br-10">
+        <div style="border:1px solid rgba(255,255,255,0.1);width:60%;background:rgba(255,255,255,0.02)" class="w-full h-full p-20 align-center column g-5 br-10">
              <div class="row w-full">
                 <div style="margin-left:auto;height:5px;width:5px;background:aqua;border-radius:50%;box-shadow:0 0 6px aqua"></div>
             </div>
@@ -286,7 +286,7 @@
             <strong style="font-size:1.5rem;">&#8358;{{ number_format(Auth::guard('users')->user()->activities_balance,2) }}</strong>
         </div>
          {{-- AFFILIATE BALANCE --}}
-        <div style="border:1px solid rgba(255,255,255,0.1);width:40%;background:rgba(255,255,255,0.02)" class="w-full p-20 align-center column g-5 br-10">
+        <div style="border:1px solid rgba(255,255,255,0.1);width:40%;background:rgba(255,255,255,0.02)" class="w-full h-full p-20 align-center column g-5 br-10">
             <div class="row w-full">
                 <div style="margin-left:auto;height:5px;width:5px;background:greenyellow;border-radius:50%;box-shadow:0 0 6px greenyellow"></div>
             </div>
