@@ -319,7 +319,10 @@
        </div>
    {{-- QUICK LINKS --}}
        <strong class="desc p-left-20">Quick Links</strong>
-       <section style="padding-top:5px;" class="grid quick-links p-10 grid-2 pc-grid-4 w-full place-center g-10">
+       <div class="column g-10 w-full">
+
+      
+       <section class="p-x-10 w-full row align-center g-10">
       {{-- NEW QUICK LINK --}}
         <div onclick="spa(event,'{{ url('users/team') }}')" class="column g-10 br-10 justify-center w-full quick-link">
            <div class="column align-center g-10">
@@ -353,6 +356,8 @@
              <small style="opacity:0.5">View your transaction history</small>
            </div>
         </div>
+       </section>
+        <section class="p-x-10 w-full row align-center g-10">
          {{-- NEW QUICK LINK --}}
           <div onclick="spa(event,'{{ url('users/tasks') }}')" class="column bg-light g-10 br-10 justify-center w-full quick-link">
            <div class="column align-center g-10">
@@ -380,6 +385,8 @@
              <small style="opacity:0.5">Click to place advert with us</small>
            </div>
         </div>
+        </section>
+         <section class="p-x-10 w-full row align-center g-10">
          {{-- NEW QUICK LINK --}}
           <div onclick="window.open('{{ $social->whatsapp }}')" class="column bg-light g-10 br-10 justify-center w-full quick-link">
            <div class="column align-center g-10">
@@ -409,6 +416,7 @@
         </div>
         
        </section>
+        </div>
 
       
         
