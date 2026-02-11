@@ -38,45 +38,23 @@
                <input type="hidden" class="input" name="_token" value="{{ @csrf_token() }}">
                 <label for="">Account Number</label>
                 <div style="border:0.1px solid var(--bg-lighter)" class="cont row align-center w-full h-50 bg-light">
-                    <input oninput="
-
-      if((document.querySelector('.account-number').value).length == 10 &&   document.querySelector('select[name=bank_name]').value !== ''){
-        document.querySelector('.verifying').classList.remove('display-none');
-         document.querySelector('.verifying').classList.remove('success');
-       document.querySelector('.verifying').classList.remove('error');
-        document.querySelector('.verifying').classList.remove('resolved');
-          document.querySelector('button.post').classList.add('disabled');
-          document.querySelector('.verifying span').innerHTML='VERIFYING ACCOUNT NAME....';
-          let bank_code=document.querySelector('select[name=bank_name]').options[document.querySelector('select[name=bank_name]').selectedIndex].dataset.code;
-
-      GetRequest(event,'{{ url('users/get/bank/auto/verify') }}?account_number=' + document.querySelector('.account-number').value + '&bank_code=' +   bank_code,document.createElement('div'),MyFunc.Verified);
-
-        }
-        " placeholder="Enter 10 digits account number" name="account_number" type="number" class="w-full inp input required account-number h-full no-border br-10 bg-transparent">
+                    <input placeholder="Enter 10 digits account number" name="account_number" type="number" class="w-full inp input required account-number h-full no-border br-10 bg-transparent">
                 </div>
                   <label for="">Account Bank</label>
                 <div style="border:0.1px solid var(--bg-lighter)" class="cont row align-center space-between g-10 no-select w-full h-50 bg-light">
                  <input type="hidden" class="bank-code">
                  {{-- <input type="hidden" name="bank_name" class="inp bank-name input required"> --}}
-                  <select onchange="
-                
-                   if((document.querySelector('.account-number').value).length == 10){
-      document.querySelector('.verifying').classList.remove('display-none');
-      document.querySelector('.verifying').classList.remove('success');
-       document.querySelector('.verifying').classList.remove('error');
-        document.querySelector('.verifying').classList.remove('resolved');
-          document.querySelector('button.post').classList.add('disabled');
-       document.querySelector('.verifying span').innerHTML='VERIFYING ACCOUNT NAME....'; 
-        GetRequest(event,'{{ url('users/get/bank/auto/verify') }}?account_number=' + document.querySelector('.account-number').value + '&bank_code=' + this.value,document.createElement('div'),MyFunc.Verified);
-
-        }
-                  " name="bank_name" class="inp input w-full bank-name required h-full border-none bg-transparent">
+                  <select name="bank_name" class="inp input w-full bank-name required h-full border-none bg-transparent">
                      <option value="" selected disabled>Select Bank....</option>
                       @foreach (Banks()->data as $data)
                             <option data-code="{{ $data->code }}" value="{{ $data->name }}">{{ $data->name }}</option>
                       @endforeach
                   </select>
                   
+                </div>
+                 <label for="">Account Name</label>
+                <div style="border:0.1px solid var(--bg-lighter)" class="cont row align-center w-full h-50 bg-light">
+                    <input placeholder="Enter account name" name="account_name" type="text" class="w-full inp input required h-full no-border br-10 bg-transparent">
                 </div>
                 <div class="bg-green-transparent display-none verifying row g-5 align-center no-select w-full br-10 p-10">
                     <svg fill="currentColor" height="30" width="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z" transform="translate(12, 12) scale(0)"><animateTransform id="spinner_XR07" begin="0;spinner_npiH.begin+0.4s" attributeName="transform" calcMode="spline" type="translate" dur="1.2s" values="12 12;0 0" keySplines=".52,.6,.25,.99"/><animateTransform begin="0;spinner_npiH.begin+0.4s" attributeName="transform" calcMode="spline" additive="sum" type="scale" dur="1.2s" values="0;1" keySplines=".52,.6,.25,.99"/><animate begin="0;spinner_npiH.begin+0.4s" attributeName="opacity" calcMode="spline" dur="1.2s" values="1;0" keySplines=".52,.6,.25,.99"/></path><path d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z" transform="translate(12, 12) scale(0)"><animateTransform id="spinner_r5ci" begin="spinner_XR07.begin+0.4s" attributeName="transform" calcMode="spline" type="translate" dur="1.2s" values="12 12;0 0" keySplines=".52,.6,.25,.99"/><animateTransform begin="spinner_XR07.begin+0.4s" attributeName="transform" calcMode="spline" additive="sum" type="scale" dur="1.2s" values="0;1" keySplines=".52,.6,.25,.99"/><animate begin="spinner_XR07.begin+0.4s" attributeName="opacity" calcMode="spline" dur="1.2s" values="1;0" keySplines=".52,.6,.25,.99"/></path><path d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z" transform="translate(12, 12) scale(0)"><animateTransform id="spinner_npiH" begin="spinner_XR07.begin+0.8s" attributeName="transform" calcMode="spline" type="translate" dur="1.2s" values="12 12;0 0" keySplines=".52,.6,.25,.99"/><animateTransform begin="spinner_XR07.begin+0.8s" attributeName="transform" calcMode="spline" additive="sum" type="scale" dur="1.2s" values="0;1" keySplines=".52,.6,.25,.99"/><animate begin="spinner_XR07.begin+0.8s" attributeName="opacity" calcMode="spline" dur="1.2s" values="1;0" keySplines=".52,.6,.25,.99"/></path></svg>
@@ -85,8 +63,8 @@
 
                   <span>VERIFYING ACCOUNT NAME....</span>
                 </div>
-                <input type="hidden" name="account_name" class="input account_name">
-                <button class="post br-0 clip-0 bold disabled">Update Bank Details</button>
+                {{-- <input type="hidden" name="account_name" class="input account_name"> --}}
+                <button class="post br-0 clip-0 bold">Update Bank Details</button>
             </form>
         </div>
        @if ($bank_linked !== 'false')
